@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="modelologico" id="51397332-E1DE-5D44-2BAB-F030DAFC7650" version="3.5">
-<createdBy>Lika</createdBy>
-<createdTime>2020-04-14 20:10:49 UTC</createdTime>
-<ownerDesignName>modelologico</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>51397332-E1DE-5D44-2BAB-F030DAFC7650</designId>
-</OSDM_Design>
