@@ -1,5 +1,13 @@
 # BD1
-Repositório para o trabalho da disciplina de Banco de Dados (professor Marcello Novaes de Amorim) feito por Filipe Montebeller Rocha, Bianca Ribeiro Andrade, Rian Castello Guimarães, Ozias Filipe Carvalho Peçanha e Matheus Barros de Andrade Cabral
+Repositório para o trabalho da disciplina de Banco de Dados com o professor Marcello Novaes de Amorim.
+
+Feito por:
+  - Bianca Ribeiro Andrade
+  - Filipe Montebeller Rocha
+  - Matheus Barros de Andrade Cabral
+  - Rian Castello Guimarães
+  - Ozias Filipe Carvalho Peçanha
+  
 
 ## Regras de normalização
 * #### 1NF:
