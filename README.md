@@ -17,7 +17,7 @@ Feito por:
     Um atributo deve estar dentro da entidade que ele depende diretamente. Se ele estiver em uma entidade relacionada, deve ser realocado para dentro da que ele depende. Eles devem não podem estar em uma tabela diferente (mesmo que ela seja 1:N com a outra a que o atributo depende) porque ele se repetiria todas as vezes sem necessidade.
     
 * #### 3NF:
-    Um atributo normal não pode depender de outro atributo normal. Caso aconteça, você deve remover esse segundo atributo normal que tem dependentes para criar uma nova tabela seguindo o mesmo princípio da 1NF e movendo os atributos dependentes dele pra dentro dela. Assim, nessa nova tabela ele é um UID real com seus atributos dependentes e está relacionado com a entidade antiga.
+    Um atributo não pode depender de outros que não sejam o UID). Caso aconteça, você deve remover esse segundo atributo dependente.  Se o atributo não for calculável mas ainda assim for dependente, significa que você precisa de uma nova tabela com esses atributos. Assim, nessa nova tabela ele é um UID real com seus atributos dependentes e está relacionado com a entidade antiga.
 
 
 
