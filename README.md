@@ -35,7 +35,7 @@
 * ### O Banco
 
     #### O Adotante, o Moderador e o Ajudante precisam ter as informações:
-    ```
+    ```sh
         * Nome
         * Sobrenome
         * Email
