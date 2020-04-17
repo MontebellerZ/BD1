@@ -3,7 +3,7 @@ Repositório para o trabalho da disciplina de Banco de Dados (professor Marcello
 
 ## Regras de normalização
 * #### 1NF:
-    Devemos observar e analisar se existe algum atributo que pode ocorrer mais de uma vez. Caso exista, devemos criar uma entidade separada, onde deve se relacionar com a antiga com uma cardinalidade de 1:N. Isso é necessário porque um atributo não deve ter mais do que um valor dentro de si.
+    Devemos observar e analisar se existe algum atributo que pode ocorrer mais de uma vez. Caso exista, devemos dividir esse atributo em novos atributos separados que sejam univalorados. Isso é necessário porque um atributo não deve ter mais do que um valor dentro de si.
     
 * #### 2NF:
     Um atributo deve estar dentro da entidade que ele depende diretamente. Se ele estiver em uma entidade relacionada, deve ser realocado para dentro da que ele depende. Eles devem não podem estar em uma tabela diferente (mesmo que ela seja 1:N com a outra a que o atributo depende) porque ele se repetiria todas as vezes sem necessidade.
