@@ -1,15 +1,116 @@
 # BD1
-Repositório para o trabalho da disciplina de Banco de Dados com o professor Marcello Novaes de Amorim.
+>Repositório para o trabalho da disciplina de Banco de Dados com o professor ***Marcello Novaes de Amorim***.
 
-Feito por:
-  - Bianca Ribeiro Andrade
-  - Filipe Montebeller Rocha
-  - Matheus Barros de Andrade Cabral
-  - Rian Castello Guimarães
-  - Ozias Filipe Carvalho Peçanha
-  
+### Feito por:
+* Bianca Ribeiro Andrade
+* Filipe Montebeller Rocha
+* Matheus Barros de Andrade Cabral
+* Rian Castello Guimarães
+* Ozias Filipe Carvalho Peçanha
 
-## Regras de normalização
+# Descrição
+
+* ### A Organização
+    >A Organização foi fundada com o propósito de resgatar pets pelas ruas, cuidar deles e permitir a adoção pela comunidade.
+    Funcionamos em alguns funcionários moderadores que cuidam de tudo que envolve os adotantes, seja na hora de adotar, de atender um contato ou atender o cliente no balcão. Também temos os ajudantes, eles cuidam dos pets enquanto não são adotados e também são eles que vão as ruas resgatá-los.
+    As pessoas que sempre tiveram o desejo de adotar um pet podem procurar na nossa organização e adotá-los sem pagar nada além de amor ao pet que vai adotar.
+    Desejamos expandir horizontes e passar disponibilizar a adoção online por um site. Para isso, precisamos de um banco de dados que o alimente corretamente e responda ao sistema tudo que ele precisa.
+
+
+* ### O Sistema
+    >O Sistema tem o intuito de proporcionar uma usabilidade flúida e eficaz. 
+
+    **No site o adotante tem acesso a diversas funcionalidades:**
+    * Se cadastrar e ter um login e perfil
+    * Visualizar e editar as informações de seu próprio perfil
+    * Visualizar informações dos pets e suas fotos
+    * Requisitar uma adoção e preencher o formulário de adoção
+    * Entrar em contato conosco
+
+    **Entretanto, também temos os ajudantes (cuidam dos pets) e os moderadores (cuidam de tudo que envolve os adotantes):**
+    * Os ajudantes que resgatam os pets nas ruas, os registram no sistema e também cuidam desses pets até serem adotados.
+    * Os moderadores atendem os contatos dos adotantes, avaliam e decidem se aceitam ou recusam uma adoção e cuidam dessa adoção até o momento que o adotante vem buscar o pet na organização.
+
+
+* ### O Banco
+
+    #### O Adotante, o Moderador e o Ajudante precisam ter as informações:
+    ```
+        * Nome
+        * Sobrenome
+        * Email
+        * Senha
+        * Telefone
+        * CPF
+        * Data de nascimento
+        * CEP
+        * Endereço
+        * Número da moradia
+        * Tipo (casa ou apt)
+        * Nome da moradia
+        * Complemento
+    ```
+    #### O Adotante precisa ter as informações adicionais:
+    ```
+        * Renda mensal
+    ```
+        
+    #### O Adotante precisa registrar pedidos de:
+    ```
+        * Contatos
+        * Adoções
+    ```
+        
+    #### O Moderador precisa controlar:
+    ```
+        * Contatos
+        * Adoções
+    ```
+        
+    #### O Ajudante precisa registrar:
+    ```
+        * Pets
+    ```
+        
+    #### O Contato precisa ter as informações:
+    ```
+        * O Adotante
+        * O Moderador
+        * Motivo do contato
+        * Data e hora do inicio contato
+        * Data e hora do fim do contato
+        * Relatório
+    ```
+        
+    #### O Pet precisa ter as informações:
+    ```
+        * Nome
+        * Espécie
+        * Raça
+        * Tamanho
+        * Peso
+        * Personaldiade
+        * Adaptabilidade
+    ```
+        
+    #### As Fotos dos Pets precisam ser registradas separadamente com as informações:
+    ```
+        * O Pet
+        * Foto
+    ```
+        
+    #### A Adoção precisa ter as informações:
+    ```
+        * O Adotante
+        * O Pet
+        * O Moderador
+        * Data da requisição
+        * Data da adoção
+        * Status da adoção (se o pet está adotado, se foi devolvido ou se a adoção foi recusada)
+        * Relatório
+    ```
+    
+# Regras de normalização
 * #### 1NF:
     Devemos observar e analisar se existe algum atributo que pode ocorrer mais de uma vez. Caso exista, devemos dividir esse atributo em novos atributos separados que sejam univalorados. Isso é necessário porque um atributo não deve ter mais do que um valor dentro de si.
     
@@ -19,8 +120,7 @@ Feito por:
 * #### 3NF:
     Um atributo não pode depender de outros que não sejam o UID). Caso aconteça, você deve remover esse segundo atributo dependente.  Se o atributo não for calculável mas ainda assim for dependente, significa que você precisa de uma nova tabela com esses atributos. Assim, nessa nova tabela ele é um UID real com seus atributos dependentes e está relacionado com a entidade antiga.
 
+# Fim
+***Por enquanto.***
 
-
-## Professor, a gente ta terminando de reformular o readme esses dias, na próxima vez que você acessar aqui, vai ta bonito o texto abaixo
-
-Preciso de um banco de dados que possa alimentar minha aplicação com tudo que o meu sistema quer disponibilizar. A aplicação é uma espécie de site de adoção onde as pessoas podem acessar, ter seu login, seus dados principais e suas preferências salvas. Quando elas acessam, elas têm disposta uma lista que é dividida em partições que mostram apenas a categoria selecionada, se o usuário clicar em cachorros, mostram apenas cachorros, se clicar em gatos, mostra apenas gatos, se clicar em todos, mostra todos os pets. Cada categoria da lista mostra todos os pets desta que estão disponíveis para a adoção e, enquanto na lista, mostra apenas um pouco de informação como a foto principal, o nome e a idade do pet. Quando clicar em cima de algum pet, o usuário é transferido para a página do perfil do animal e lá mostram todas as suas informações dele, como nome, fotos, idade, personalidade, características, peso, tamanho, raça e por aí vai. Além da lista e do perfil do pet, quero um pequeno perfil para o usuário onde as informações dele também podem ser mostradas e editadas por ele mesmo. Por fim tenho uma página de formulário para a adoção, que está relacionada tanto a pessoa que deseja adotar quanto ao pet, mas cada adoção é única e tem suas características pois as informações mudam sempre e então o formulário deve ser preenchido novamente toda vez que for adotar um pet novo. Quando um pet for efetivamente adotado, não quero que ele desapareça do sistema, quero apenas que ele fique indisponível e que eu possa saber que o adotou por tempo indefinido para que eu sempre possa contatar o adotante e que eu possa reinserir o pet caso ele e o novo dono não se adaptem juntos e ele tenha que voltar pra organização. Gostaria também que tanto o pet quanto os usuários do site tivessem um histórico de adoções, para que mesmo que eles desfaçam a adoção, eu possa saber quem o usuário já adotou e por quem o pet já foi adotado.
+*Última atualização deste arquivo: 17/04/2020 às 12:55*
