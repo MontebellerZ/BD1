@@ -110,6 +110,19 @@
         * Relatório
     ```
     
+* ### Perguntas
+    
+    #### Perguntas que o banco de dados é capaz de responder:
+    ```
+        * Quais são os pets disponíveis?
+        * Quais são os donos que já devolveram pets adotados?
+        * Quais pets já foram adotados por mais pessoas?
+        * Quais moderadores já negaram adoções para uma certa pessoa?
+        * Quais gatos estão disponíveis para adoção?
+        * Quais filhotes de cachorro então para adoção (No máximo X meses)?
+        * Quais são os cachorros mais velhos que estão para adoção?
+    ```
+    
 # Regras de normalização
 * #### 1NF:
     Devemos observar e analisar se existe algum atributo que pode ocorrer mais de uma vez. Caso exista, devemos dividir esse atributo em novos atributos separados que sejam univalorados. Isso é necessário porque um atributo não deve ter mais do que um valor dentro de si.
