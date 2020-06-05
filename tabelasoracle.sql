@@ -1,5 +1,5 @@
 CREATE TABLE Humanos (
-	nome VARCHAR(80) NOT NULL,
+    nome VARCHAR(80) NOT NULL,
     sobrenome VARCHAR(80) NOT NULL,
     email VARCHAR(80) PRIMARY KEY,
     senha VARCHAR(80) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Moderadores (
 );
 
 CREATE TABLE Contatos (
-	id INT PRIMARY KEY,
+    id INT PRIMARY KEY,
     motivo VARCHAR(80) NOT NULL,
     datainicio DATE NOT NULL,
     datafim DATE,
@@ -43,7 +43,7 @@ CREATE TABLE Contatos (
 );
 
 CREATE TABLE Pets (
-	id INT PRIMARY KEY,
+    id INT PRIMARY KEY,
     nome VARCHAR(80) NOT NULL,
     especie VARCHAR(80) NOT NULL,
     raca VARCHAR(80) NOT NULL,
@@ -56,14 +56,14 @@ CREATE TABLE Pets (
 );
 
 CREATE TABLE Fotopets (
-	id INT PRIMARY KEY,
+    id INT PRIMARY KEY,
     link VARCHAR(255),
     pet_id INT NOT NULL,
     FOREIGN KEY (pet_id) REFERENCES Pets(id)
 );
 
 CREATE TABLE Adocoes (
-	id INT PRIMARY KEY,
+    id INT PRIMARY KEY,
     datarequisicao DATE NOT NULL,
     dataadocao DATE,
     status INT NOT NULL,
