@@ -44,7 +44,7 @@
         * CPF
         * Data de nascimento
         * CEP
-        * Endereço
+        * Nome da rua
         * Número da moradia
         * Tipo (casa ou apt)
         * Nome da moradia
@@ -96,7 +96,7 @@
     #### As Fotos dos Pets precisam ser registradas separadamente com as informações:
     ```
         * O Pet
-        * Foto
+        * Link da foto
     ```
         
     #### A Adoção precisa ter as informações:
