@@ -85,10 +85,11 @@
     #### O Pet precisa ter as informações:
     ```
         * Nome
+        * Idade
         * Espécie
         * Raça
-        * Tamanho
-        * Peso
+        * Tamanho em centimetros 
+        * Peso em gramas
         * Personaldiade
         * Adaptabilidade
     ```
