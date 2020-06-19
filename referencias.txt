@@ -1,0 +1,11 @@
+Adocoes.status
+	1 -> requisitada
+	2 -> em avaliação
+	3 -> adotado
+	4 -> negado
+	5 -> devolvido
+
+Pets.disponibilidade
+	1 -> disponível para adoção
+	2 -> adotado
+	3 -> em recuperação 
