@@ -1,9 +1,10 @@
+DROP DATABASE audocao;
 CREATE DATABASE audocao;
 USE audocao;
 
 
 
- /* CRIANDO AS TABELAS */
+/* CRIANDO AS TABELAS */
 CREATE TABLE Humanos (
 	nome VARCHAR(20) NOT NULL,
     sobrenome VARCHAR(40) NOT NULL,
@@ -45,7 +46,8 @@ CREATE TABLE Contatos (
     moderador_email VARCHAR(80),
     adotante_email VARCHAR(80) NOT NULL,
     FOREIGN KEY (moderador_email) REFERENCES Moderadores(email_moderador),
-    FOREIGN KEY (adotante_email) REFERENCES Adotantes(email_adotante)
+    FOREIGN KEY (adotante_email) REFERENCES Adotantes(email_adotante),
+    UNIQUE (datainicio,motivo,adotante_email)
 );
 
 CREATE TABLE Pets (
@@ -60,14 +62,16 @@ CREATE TABLE Pets (
     adaptabilidade VARCHAR(1000),
     disponibilidade INT NOT NULL,
     ajudante_email VARCHAR(80) NOT NULL,
-    FOREIGN KEY (ajudante_email) REFERENCES Ajudantes(email_ajudante)
+    FOREIGN KEY (ajudante_email) REFERENCES Ajudantes(email_ajudante),
+    UNIQUE (nome,idade,especie,raca,ajudante_email)
 );
 
 CREATE TABLE Fotopets (
 	id_fotopet INT PRIMARY KEY,
-    link VARCHAR(1000),
+    link VARCHAR(500),
     pet_id INT NOT NULL,
-    FOREIGN KEY (pet_id) REFERENCES Pets(id_pet)
+    FOREIGN KEY (pet_id) REFERENCES Pets(id_pet),
+    UNIQUE (link,pet_id)
 );
 
 CREATE TABLE Adocoes (
@@ -81,7 +85,8 @@ CREATE TABLE Adocoes (
     adotante_email VARCHAR(80) NOT NULL,
     FOREIGN KEY (pet_id) REFERENCES Pets(id_pet),
     FOREIGN KEY (moderador_email) REFERENCES Moderadores(email_moderador),
-    FOREIGN KEY (adotante_email) REFERENCES Adotantes(email_adotante)
+    FOREIGN KEY (adotante_email) REFERENCES Adotantes(email_adotante),
+    UNIQUE (datarequisicao,pet_id,adotante_email)
 );
 /* FIM CRIANDO TABELAS */
 
@@ -494,8 +499,7 @@ AND Pets.disponibilidade!=2;
 		ORDER BY Pets.especie, Pets.nome;
 		
 	SELECT /* Quais são os adotantes que já devolveram pets? */
-		Humanos.nome AS "nome do adotante", 
-		Adotantes.email_adotante AS "email do adotante", 
+		Humanos.nome AS "nome do adotante",
 		Pets.nome AS "nome do pet", 
 		Pets.especie AS "espécie do pet", 
 		Adocoes.status AS "status da adocao"
@@ -539,26 +543,29 @@ AND Pets.disponibilidade!=2;
 		GROUP BY Humanos.nome;
         
 	SELECT /* Quais moderadores já negaram adoções para uma certa pessoa? */
-		Humanos.nome AS "nome do moderador",
-		Humanos.sobrenome AS "sobrenome do moderador",
-        Adotantes.email_adotante AS "email adotante",
+		Humano_moderador.nome AS "nome do moderador",
+        Humano_adotante.nome AS "nome do adotante",
         COUNT(*) AS "vezes negada"
-		FROM Humanos, Adocoes, Moderadores, Adotantes
+		FROM Adocoes, Moderadores, Adotantes, Humanos Humano_moderador, Humanos Humano_adotante
 		WHERE Adocoes.status=4
 		AND Adocoes.moderador_email=Moderadores.email_moderador
 		AND Adocoes.adotante_email=Adotantes.email_adotante
-		AND Moderadores.email_moderador=Humanos.email
-		GROUP BY Humanos.nome;
+		AND Moderadores.email_moderador=Humano_moderador.email
+		AND Adotantes.email_adotante=Humano_adotante.email
+		GROUP BY Humano_moderador.nome
+        ORDER BY Humano_moderador.nome;
         
 	SELECT /* Quais adoções estão com status de adotado? */
 		Adocoes.id_adocao AS "id da adoção",
-        Adotantes.email_adotante AS "email do adotante",
-        Moderadores.email_moderador AS "email do moderador",
+        Humano_adotante.nome AS "nome do adotante",
+        Humano_moderador.nome AS "nome do moderador",
         Adocoes.status AS "status da adoção"
-        FROM Adocoes, Adotantes, Moderadores
+        FROM Adocoes, Adotantes, Moderadores, Humanos Humano_moderador, Humanos Humano_adotante
         WHERE Adocoes.status=3
         AND Adocoes.adotante_email=Adotantes.email_adotante
-        AND Adocoes.moderador_email=Moderadores.email_moderador;
+        AND Adotantes.email_adotante=Humano_adotante.email
+        AND Adocoes.moderador_email=Moderadores.email_moderador
+        AND Moderadores.email_moderador=Humano_moderador.email;
         
 	SELECT /* Quais são as raças disponíveis? */
 		Pets.especie AS "espécies",
