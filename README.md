@@ -47,8 +47,8 @@
         * Nome da rua
         * Número da moradia
         * Tipo (casa ou apt)
-        * Nome da moradia
-        * Complemento
+        * Nome da moradia (caso haja)
+        * Complemento (caso o tipo seja apt)
     ```
     #### O Adotante precisa ter as informações adicionais:
     ```
@@ -67,7 +67,7 @@
         * Adoções
     ```
         
-    #### O Ajudante precisa registrar:
+    #### O Ajudante precisa registrar e cuidar de:
     ```
         * Pets
     ```
@@ -75,11 +75,11 @@
     #### O Contato precisa ter as informações:
     ```
         * O Adotante
-        * O Moderador
+        * O Moderador (quando o contato for atendido)
         * Motivo do contato
         * Data e hora do inicio contato
-        * Data e hora do fim do contato
-        * Relatório
+        * Data e hora do fim do contato (ao fim do contato)
+        * Relatório (ao fim do contato)
     ```
         
     #### O Pet precisa ter as informações:
@@ -90,8 +90,9 @@
         * Raça
         * Tamanho em centimetros 
         * Peso em gramas
-        * Personaldiade
+        * Personalidade
         * Adaptabilidade
+        * Disponibilidade (se está apto para adoção, se já está adotado ou se está em recuperação)
     ```
         
     #### As Fotos dos Pets precisam ser registradas separadamente com as informações:
@@ -104,24 +105,33 @@
     ```
         * O Adotante
         * O Pet
-        * O Moderador
+        * O Moderador (quando a adoção entrar em avaliação)
         * Data da requisição
-        * Data da adoção
-        * Status da adoção (se o pet está adotado, se foi devolvido ou se a adoção foi recusada)
-        * Relatório
+        * Data da adoção (caso seja o pet seja adotado)
+        * Status da adoção (diferente para cada estágio: requisitada, em avaliação, adotada, negada ou desfeita (pet devolvido))
+        * Relatório (ao fim do processo)
     ```
     
 * ### Perguntas
     
     #### Perguntas que o banco de dados é capaz de responder:
     ```
-        * Quais são os pets disponíveis?
-        * Quais são os donos que já devolveram pets adotados?
-        * Quais pets já foram adotados por mais pessoas?
+        * Quantos animais possui no total na instituição?
+        * Quantos pets estão disponíveis para adoção?
+        * Quais são os pets disponíveis para adoção?
+        * Quantos pets estão em recuperação?
+        * Quais pets estão adotados?
+        * Quais são os adotantes que já devolveram pets?
+        * Quais pets já foram adotados por mais de uma vez?
+        * Quais pessoas já adotaram mais de uma vez?
+        * Quais moderadores já recusaram adoções?
         * Quais moderadores já negaram adoções para uma certa pessoa?
+        * Quais adoções estão com status de adotado?
+        * Quais são as raças disponíveis?
         * Quais gatos estão disponíveis para adoção?
-        * Quais filhotes de cachorro então para adoção (No máximo X meses)?
         * Quais são os cachorros mais velhos que estão para adoção?
+        * Quais animais estão na faixa etária de 0 a 2 anos?
+        * Quais filhotes de cachorro estão para adoção (no max 1 ano)?
     ```
     
 # Regras de normalização
@@ -135,6 +145,5 @@
     Um atributo não pode depender de outros que não sejam o UID). Caso aconteça, você deve remover esse segundo atributo dependente.  Se o atributo não for calculável mas ainda assim for dependente, significa que você precisa de uma nova tabela com esses atributos. Assim, nessa nova tabela ele é um UID real com seus atributos dependentes e está relacionado com a entidade antiga.
 
 # Fim
-***Por enquanto.***
 
-*Última atualização deste arquivo: 08/05/2020 às 07:47*
+*Última atualização deste arquivo: 18/06/2020 às 21:24*
